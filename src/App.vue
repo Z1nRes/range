@@ -25,8 +25,8 @@ export default {
   data() {
     return {
       type: "years",
-      inputMin: 2014,
-      inputMax: 2023,
+      inputMin: 0,
+      inputMax: 9,
       years: [
                 {
                     'id': '0', 
@@ -87,125 +87,119 @@ export default {
           },
           {
               'id': '1', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'фев',
+              'year': '2015'
           },
           {
               'id': '2', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'мар',
+              'year': '2015'
           },
           {
               'id': '3', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'май',
+              'year': '2015'
           },
           {
               'id': '4', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'июн',
+              'year': '2015'
           },
           {
               'id': '5', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'июл',
+              'year': '2015'
           },
           {
               'id': '6', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'авг',
+              'year': '2015'
           },
           {
               'id': '7', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'сен',
+              'year': '2015'
           },
           {
               'id': '8', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'окт',
+              'year': '2015'
           },
           {
               'id': '9', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'ноя',
+              'year': '2015'
           },
           {
               'id': '10', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'дек',
+              'year': '2015'
           },
           {
               'id': '11', 
-              'title': '2014',
-              'year': '2014'
+              'title': '2016',
+              'year': '2016'
           },
           {
               'id': '12', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'фев',
+              'year': '2016'
           },
           {
               'id': '13', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'мар',
+              'year': '2016'
           },
           {
               'id': '14', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'апр',
+              'year': '2016'
           },
           {
               'id': '15', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'май',
+              'year': '2016'
           },
           {
               'id': '16', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'июн',
+              'year': '2016'
           },
           {
               'id': '17', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'июл',
+              'year': '2016'
           },
           {
               'id': '18', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'авг',
+              'year': '2016'
           },
           {
               'id': '19', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'сен',
+              'year': '2016'
           },
           {
               'id': '20', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'окт',
+              'year': '2016'
           },
           {
               'id': '21', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'ноя',
+              'year': '2016'
           },
           {
               'id': '22', 
-              'title': '2014',
-              'year': '2014'
+              'title': 'дек',
+              'year': '2016'
           },
           {
               'id': '23', 
-              'title': '2014',
-              'year': '2017'
+              'title': '2016',
+              'year': '2016'
           },
-          {
-              'id': '24', 
-              'title': '2014',
-              'year': '2014'
-          },
-          
       ]
     }
   },
@@ -217,8 +211,8 @@ export default {
         this.inputMax = 24
       } else {
         this.type = 'years'
-        this.inputMin = 2014
-        this.inputMax = 2023
+        this.inputMin = 0
+        this.inputMax = 9
       }
       const span = document.querySelectorAll('.span')
       if(span[0].className === 'span span-active') {

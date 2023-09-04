@@ -13,11 +13,6 @@ export default {
         ListOption,
     },
     props: ['years'],
-    data() {
-        return {
-            
-        }
-    }
 }
 </script>
 

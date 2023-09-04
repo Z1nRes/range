@@ -6,13 +6,13 @@
             <div class="range-slider" list="list">
               <div class="progress"></div>
               <div>
-                <div class="out-wrapper">
+                <div class="out-wrapper out-wrapper-min">
                   <div class="out out-min" for="inputMin">{{ inputValueMin }}</div>
                 </div>
                 <input name="inputMin" v-model="inputValueMin" @input="rangeFunc('min')" type="range" class="range-min" v-bind:min="inputMin" v-bind:max="inputMax" >
               </div>
               <div>
-                <div class="out-wrapper">
+                <div class="out-wrapper out-wrapper-max">
                   <div class="out out-max" for="inputMax">{{ inputValueMax }}</div>
                 </div>
                 <input name="inputMax" v-model="inputValueMax" @input="rangeFunc('max')" type="range" class="range-max" v-bind:min="inputMin" v-bind:max="inputMax" >
@@ -42,12 +42,12 @@ export default {
     },
     methods: {
       rangeFunc(el) {
-        const range = document.querySelectorAll('.range-slider input');
-        const progress = document.querySelector('.range-slider .progress');
-        let gap = 1;
-        const out = document.querySelectorAll('.out');
-        let minrange = parseInt(range[0].value)
-        let maxrange = parseInt(range[1].value)
+        const range = document.querySelectorAll('.range-slider input')
+        const progress = document.querySelector('.range-slider .progress')
+        const gap = 1;
+        const out = document.querySelectorAll('.out')
+        const minrange = parseInt(range[0].value)
+        const maxrange = parseInt(range[1].value)
 
         if(maxrange - minrange < gap) {
           if(el === 'min'){
@@ -57,10 +57,9 @@ export default {
           }
         } 
 
-
         out[0].style.left = progress.style.left = 100 - ((range[0].max - minrange) / (range[0].max - range[0].min)) * 100 + '%';
-        out[1].style.right = progress.style.right = 100 - ((maxrange - range[1].min) / (range[1].max - range[1].min)) * 100 + '%';
-        
+        progress.style.right = 100 - ((maxrange - range[1].min) / (range[1].max - range[1].min)) * 100 + '%';
+        out[1].style.left = ((maxrange - range[1].min) / (range[1].max - range[1].min)) * 100 + '%';
       }
     }
 }
@@ -141,47 +140,64 @@ body {
     display: flex;
     justify-content: space-between;
     height: auto;
-    overflow: hidden;
+    overflow: visible;
     margin-top: 16px; 
     width: 100%;
 }
 
-
-
-.out{
-  position: relative;
-  display: flex;
-}
-// .out::before{
-//   content: '';
-//   width: 50px;
-//   height: 50px;
-//   position: relative;
-//   background: #222;
-//   left: 2em;
-// }
-
 .out-min{
-  position: absolute;
-  top: -14em;
-  left: 0%;
-  background: #FFFFFF;
+  position: relative;
+  z-index: 22;
   width: 70px;
-  height: 66px;
+  background: #FFFFFF;
+  top: -70px;
+  transform: translate(-40%);
   filter: drop-shadow(0px 5px 15px rgba(14, 88, 143, 0.20));
+  border-radius: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #0167B3;
+}
+
+.out-min::before{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 25px;
+  height: 25px;
+  border-right: 20px solid #FFFFFF;
+  bottom: -20px;
+  transform: rotate(45deg) translate(-75%);
 }
 
 .out-max{
-  position: absolute;
-  top: 1em;
-  right: -6%;
-  display: flex;
-  justify-content: flex-end;
+  position: relative;
+  z-index: 22;
+  width: 70px;
   background: #FFFFFF;
-  width: auto;
-  padding: 20px;
+  top: -20px;
+  transform: translate(-40%);
   filter: drop-shadow(0px 5px 15px rgba(14, 88, 143, 0.20));
-  border-radius: 10px;
+  border-radius: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #0167B3;
+}
+
+.out-max::before{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 25px;
+  height: 25px;
+  border-right: 20px solid #FFFFFF;
+  top: -15px;
+  left: 3px;
+  transform: rotate(45deg) translateX(0%);
+}
+
+.out-max{
+  left: 95%;
 }
 
 </style>
